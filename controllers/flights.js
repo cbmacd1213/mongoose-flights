@@ -27,8 +27,9 @@ function newFlight(req, res) {
 function create(req, res) {
   const flight = new Flight(req.body);
   flight.save(function(err) {
+    console.log(err);
     if (err) return res.redirect('/flights/new');
-    console.log(flight);
+    // console.log(flight);
     res.redirect(`/flights/${flight._id}`);
   });
 }

@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+<%- include('../partials/header') %>
+
+
   <h2>Enter a New Flight</h2>
 <form action="/flights" method="POST">
   <label>Airline
     <select name="airline">
-      <option value="american">American</option>
-      <option value="southwest">Southwest</option>
-      <option value="united">United</option>
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
     </select>
   </label><br>
   <label>Airport
@@ -25,12 +20,11 @@
     </select>
   </label><br>
   <label>Flight Number
-    <input type="number" name="flightNo">
+    <input type="type" name="flightNo">
   </label><br>
   <label>Departs:
     <input type="date" name="departs">
   </label><br>
   <input type="submit" value="Add Flight">
 </form>
-</body>
-</html>
+<%- include('../partials/footer') %>
