@@ -9,6 +9,44 @@
     <div><%= flight.flightNo %></div>
     <div>Departs: </div>
     <div><%= flight.departs %></div>
+    <form id="add-layover-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+        <label>Layover:</label>
+        <select name="layover">
+          <option value="AUS">AUS</option>
+          <option value="DFW">DFW</option>
+          <option value="DEN">DEN</option>
+          <option value="LAX">LAX</option>
+          <option value="SAN">SAN</option>
+        </select>
+        <input type="submit" value="Add Layover">
+      </form>
     
+
+      <% if (flight.destinations.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Layover</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let total = 0 %>
+            <% flight.destinations.forEach(function(d) { %>
+              <% total += d.airport %>
+              <tr>
+                <td><%= d.createdAt.toLocaleDateString() %></td>
+                <td><%= d.content %></td>
+                <td><%= d.airport %></td>
+              </tr>
+            <% }); %>
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h5>No Layovers Yet</h5>
+      <% } %>
 
 <%- include('../partials/footer') %>
