@@ -11,13 +11,15 @@
     <div><%= flight.departs %></div>
     <form id="add-layover-form" method="POST" action="/flights/<%= flight._id %>/destinations">
         <label>Layover:</label>
-        <select name="layover">
+        <select name="airport">
           <option value="AUS">AUS</option>
           <option value="DFW">DFW</option>
           <option value="DEN">DEN</option>
           <option value="LAX">LAX</option>
           <option value="SAN">SAN</option>
         </select>
+        <label>Arrival Date:</label>
+            <input type="datetime-local" name="arrival" value="">
         <input type="submit" value="Add Layover">
       </form>
     
@@ -31,13 +33,12 @@
             </tr>
           </thead>
           <tbody>
-            <% let total = 0 %>
+            
             <% flight.destinations.forEach(function(d) { %>
-              <% total += d.airport %>
+            
               <tr>
-                <td><%= d.createdAt.toLocaleDateString() %></td>
-                <td><%= d.content %></td>
                 <td><%= d.airport %></td>
+               <td><%= d.arrival %></td>
               </tr>
             <% }); %>
             <tr>
