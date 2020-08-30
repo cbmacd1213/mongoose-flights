@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<form action="/flights/<%= flight._id%>?_method=PUT" method="POST">
+    <label for="airline">Edit Airline:
+        <select name="airline">
+            <option <%= flight.airline === "American" ? "selected":"" %> value="American">American</option>
+            <option <%= flight.airline === "Delta" ? "selected":"" %> value="Delta">Delta</option>
+            <option <%= flight.airline === "Southwest" ? "selected":"" %> value="Southwest">Southwest</option>
+            <option <%= flight.airline === "United" ? "selected":"" %> value="United">United</option>
+        </select>
+    </label>
+    <label for="airport">Edit Airport
+        <select name="airport">
+            <option <%= flight.airport === "AUS" ? "selected":"" %>>AUS</option>
+            <option <%= flight.airport === "DEN" ? "selected":"" %>>DEN</option>
+            <option <%= flight.airport === "DFW" ? "selected":"" %>>DFW</option>
+            <option <%= flight.airport === "LAX" ? "selected":"" %>>LAX</option>
+            <option <%= flight.airport === "SAN" ? "selected":"" %>>SAN</option>
+        </select>
+    </label>
+    <label for="flightNo">Edit Flight Number:
+        <input type="number" name="flightNo" value="<%= flight.flightNo %>">
+    </label>
+    <label for="date">Edit Date:
+        <input type="datetime-local" name="departs" value="<%= flightDeparts %>">
+    </label>
+    <button class="submit-button" type="submit">Accept Changes</button>
+</form>
+<%- include('../partials/footer') %>
