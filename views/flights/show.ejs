@@ -70,7 +70,7 @@
                     <td><%=ticket.seat%></td>
                     <td>$<%=ticket.price%>.00</td>
                     <td>
-                        <form action="/tickets/<%=ticket._id%>?_method=DELETE" method="POST">
+                        <form action="/tickets/<%= ticket._id %>?_method=DELETE" method="POST">
                           <button class ="small-button red-button" type="submit">X</button>
                         </form>
                       </td>
